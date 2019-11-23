@@ -1,4 +1,4 @@
-module github.com/solo-io/packer-builder-arm-image
+module github.com/joelpurra/packer-builder-arm-image
 
 require (
 	github.com/hashicorp/go-cleanhttp v0.0.0-20171218145408-d5fe4b57a186 // indirect
