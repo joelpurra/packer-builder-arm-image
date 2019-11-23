@@ -14,31 +14,13 @@ import (
 	"github.com/ulikunitz/xz"
 )
 
-type nilUi struct{}
-
 type imageOpener struct {
 	ui packer.Ui
 }
 
-func (*nilUi) Ask(string) (string, error) {
-	return "", errors.New("no ui available")
-}
-func (*nilUi) Say(string) {
-
-}
-func (*nilUi) Message(string) {
-
-}
-func (*nilUi) Error(string) {
-
-}
-func (*nilUi) Machine(string, ...string) {
-
-}
-
 func NewImageOpener(ui packer.Ui) ImageOpener {
 	if ui == nil {
-		ui = &nilUi{}
+		ui = &packer.NoopUi{}
 	}
 	return &imageOpener{ui: ui}
 }
